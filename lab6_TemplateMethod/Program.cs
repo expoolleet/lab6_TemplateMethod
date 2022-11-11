@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lab6_TemplateMethod.Drinks;
+using System;
 
 namespace lab6_TemplateMethod
 {
@@ -6,7 +7,13 @@ namespace lab6_TemplateMethod
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Beverage coffe = new Coffe();
+            Beverage tea = new Tea();
+
+            coffe.Prepare(true);
+            Console.WriteLine("\n");
+            tea.Prepare(false);
+            Console.ReadKey();
         }
     }
 }

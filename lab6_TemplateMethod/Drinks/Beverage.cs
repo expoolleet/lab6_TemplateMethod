@@ -9,39 +9,25 @@ namespace lab6_TemplateMethod.Drinks
     abstract class Beverage
     {
         private protected void BoilWater() => Console.WriteLine("Вскипятить воду");
-        private protected virtual void Brew() => Console.WriteLine("Заварить напиток");
+        abstract private protected void Brew();
         private protected void Pour() => Console.WriteLine("Налить в чашку");
-        private protected bool AddCondiments()
+        abstract private protected void AddCondiments();
+
+
+        private protected virtual bool CustomerWantsCondiments()
         {
             return true;
         }
 
-        private protected virtual void CustomerWantsCondiments(bool condition)
-        {
-            switch (condition)
-            {
-                case true: AddCondiments(); break;
-                case false: break;
-                default: throw new ArgumentException();
-            }
-        }
-        //private protected virtual bool Addition(bool condition)
-        //{
-        //    if (condition)
-        //    {
-        //        return true;
-        //    }
-        //   else
-        //    {
-        //        return false;
-        //    }
-        //}
-        public void Make()
+        public void Prepare(bool condition)
         {
             BoilWater();
             Brew();
             Pour();
-            AddCondiments();
+            if (CustomerWantsCondiments())
+            {
+                AddCondiments();
+            }
         }
     }
 }

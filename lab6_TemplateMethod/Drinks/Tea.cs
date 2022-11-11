@@ -10,6 +10,24 @@ namespace lab6_TemplateMethod.Drinks
     {
         private protected override void Brew() => Console.WriteLine("Заварить чай");
 
+        private protected override bool AddCondiments()
+        {
+            return false;
+        }
+
+        private protected override void CustomerWantsCondiments(bool condition)
+        {
+            switch (condition)
+            {
+                case true:
+                    Console.WriteLine("Добавить молоко в чай");
+                    base.AddCondiments();
+                    break;
+                case false: break;
+
+            }
+        }
+
 
     }
 }
