@@ -1,5 +1,5 @@
-﻿using lab6_TemplateMethod.Beverages;
-using System;
+﻿using System;
+using lab6_TemplateMethod.Beverages;
 
 namespace lab6_TemplateMethod
 {
